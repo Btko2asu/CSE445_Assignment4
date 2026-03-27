@@ -19,7 +19,7 @@ namespace ConsoleApp1
 
     public class Submission
     {
-        public static string xmlURL = "Your XML URL";
+        public static string xmlURL = "https://raw.githubusercontent.com/Btko2asu/CSE445_Assignment4/refs/heads/master/CSE445_Assignment4/XMLFile1.xml?token=GHSAT0AAAAAADYYYXZFJOYC4OXAQ6DPEG742OG7I7A";
         public static string xmlErrorURL = "Your Error XML URL";
         public static string xsdURL = "Your XSD URL";
 
