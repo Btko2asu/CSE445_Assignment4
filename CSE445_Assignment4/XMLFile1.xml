@@ -1,1 +1,126 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<NationalParks xmlns="http://Bknationalparks.org">
+	<NationalPark Rating="4.8">
+		<Name>Cuyahoga Valley National Park</Name>
+		<Phone>440-717-3890</Phone>
+		<Address NearestAirport="Cleveland Hopkins">
+			<Number>15610</Number>
+			<Street>Vaughn Road</Street>
+			<City>Brecksville</City>
+			<State>OH</State>
+			<Zip>44141</Zip>
+		</Address>
+	</NationalPark>
+	<NationalPark Rating="4.7">
+		<Name>Indiana Dunes National Park</Name>
+		<Phone>219-395-1882</Phone>
+		<Phone>800-727-5847</Phone>
+		<Address NearestAirport="Chicago Midway">
+			<Number>1100</Number>
+			<Street>North Mineral Springs Road</Street>
+			<City>Porter</City>
+			<State>IN</State>
+			<Zip>46304</Zip>
+		</Address>
+	</NationalPark>
+
+	<NationalPark Rating="4.8">
+		<Name>New River Gorge National Park and Preserve</Name>
+		<Phone>304-465-0508</Phone>
+		<Phone>304-574-2115</Phone>
+		<Address NearestAirport="West Virginia International Yeager Airport">
+			<Number>104</Number>
+			<Street>Main Street</Street>
+			<City>Glen Jean</City>
+			<State>WV</State>
+			<Zip>25846</Zip>
+		</Address>
+	</NationalPark>
+
+	<NationalPark Rating="4.8">
+		<Name>Shenandoah National Park</Name>
+		<Phone>540-999-3500</Phone>
+		<Phone>800-732-0911</Phone>
+		<Address NearestAirport="Charlottesville-Albemarle Airport">
+			<Number>3655</Number>
+			<Street>U.S. Highway 211 East</Street>
+			<City>Luray</City>
+			<State>VA</State>
+			<Zip>22835</Zip>
+		</Address>
+	</NationalPark>
+
+	<NationalPark Rating="4.9">
+		<Name>Mammoth Cave National Park</Name>
+		<Phone>270-758-2180</Phone>
+		<Phone>877-444-6777</Phone>
+		<Address NearestAirport="Nashville International Airport">
+			<Number>7</Number>
+			<Street>P.O. Box</Street>
+			<City>Mammoth Cave</City>
+			<State>KY</State>
+			<Zip>42259</Zip>
+		</Address>
+	</NationalPark>
+
+	<NationalPark Rating="4.7">
+		<Name>Isle Royale National Park</Name>
+		<Phone>906-482-0984</Phone>
+		<Address NearestAirport="Houghton County Memorial Airport">
+			<Number>800</Number>
+			<Street>East Lakeshore Drive</Street>
+			<City>Houghton</City>
+			<State>MI</State>
+			<Zip>49931</Zip>
+		</Address>
+	</NationalPark>
+
+	<NationalPark Rating="4.6">
+		<Name>Gateway Arch National Park</Name>
+		<Phone>314-655-1600</Phone>
+		<Phone>877-982-1410</Phone>
+		<Address>
+			<Number>11</Number>
+			<Street>North 4th Street</Street>
+			<City>St. Louis</City>
+			<State>MO</State>
+			<Zip>63102</Zip>
+		</Address>
+	</NationalPark>
+
+	<NationalPark Rating="4.9">
+		<Name>Great Smoky Mountains National Park</Name>
+		<Phone>865-436-1200</Phone>
+		<Address NearestAirport="McGhee Tyson Airport">
+			<Number>107</Number>
+			<Street>Park Headquarters Road</Street>
+			<City>Gatlinburg</City>
+			<State>TN</State>
+			<Zip>37738</Zip>
+		</Address>
+	</NationalPark>
+
+	<NationalPark Rating="4.8">
+		<Name>Voyageurs National Park</Name>
+		<Phone>218-283-6600</Phone>
+		<Address>
+			<Number>360</Number>
+			<Street>Highway 11 East</Street>
+			<City>International Falls</City>
+			<State>MN</State>
+			<Zip>56649</Zip>
+		</Address>
+	</NationalPark>
+
+	<NationalPark Rating="4.6">
+		<Name>Congaree National Park</Name>
+		<Phone>803-776-4396</Phone>
+		<Address NearestAirport="Columbia Metropolitan Airport">
+			<Number>100</Number>
+			<Street>National Park Road</Street>
+			<City>Hopkins</City>
+			<State>SC</State>
+			<Zip>29061</Zip>
+		</Address>
+	</NationalPark>
+</NationalParks>

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    targetNamespace="http://nationalparks.org"
-    xmlns="http://nationalparks.org"
+    targetNamespace="http://Bknationalparks.org"
+    xmlns="http://Bknationalparks.org"
     elementFormDefault="qualified">
 
 	<xs:element name="NationalParks">
