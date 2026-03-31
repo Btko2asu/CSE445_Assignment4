@@ -25,9 +25,9 @@ namespace ConsoleApp1
 
     public class Submission
     {
-        public static string xmlURL = "https://raw.githubusercontent.com/Btko2asu/CSE445_Assignment4/refs/heads/master/CSE445_Assignment4/XMLFile1.xml?token=GHSAT0AAAAAADYYYXZFJOYC4OXAQ6DPEG742OG7I7A";
-        public static string xmlErrorURL = "https://raw.githubusercontent.com/Btko2asu/CSE445_Assignment4/refs/heads/master/CSE445_Assignment4/NationalParksErrors.xml?token=GHSAT0AAAAAADYYYXZEBNWEP36BWCRNOG2C2OG7LNQ";
-        public static string xsdURL = "https://raw.githubusercontent.com/Btko2asu/CSE445_Assignment4/refs/heads/master/CSE445_Assignment4/NationalParks.xsd?token=GHSAT0AAAAAADYYYXZEQJDF5ZRROIXPW6KG2OG7KYA";
+        public static string xmlURL = "https://raw.githubusercontent.com/Btko2asu/CSE445_Assignment4/refs/heads/master/CSE445_Assignment4/NationalParks.xml";
+        public static string xmlErrorURL = "https://raw.githubusercontent.com/Btko2asu/CSE445_Assignment4/refs/heads/master/CSE445_Assignment4/NationalParks.xsd";
+        public static string xsdURL = "https://raw.githubusercontent.com/Btko2asu/CSE445_Assignment4/refs/heads/master/CSE445_Assignment4/NationalParksErrors.xml";
 
         public static void Main(string[] args)
         {
@@ -130,27 +130,26 @@ namespace ConsoleApp1
                         XAttribute nearestAirport = address.Attribute("NearestAirport");
                         if (nearestAirport != null) addressObject["NearestAirport"] = nearestAirport.Value;
                         parkObject["Address"] = addressObject;
-
-                        //add attribute rating to park object
-                        XAttribute rating = park.Attribute("Rating");
-                        if (rating != null) parkObject["Rating"] = rating.Value;
-                        parkArray.Add(parkObject);
                     }
-                    JObject finalObject = new JObject(
-                        new JProperty("NationalParks",
-                            newJObject(
-                                new JProperty("NationalPark", parkArray)
-                            )
+                    //add attribute rating to park object
+                    XAttribute rating = park.Attribute("Rating");
+                    if (rating != null) parkObject["Rating"] = rating.Value;
+                    parkArray.Add(parkObject);
+                }
+                JObject finalObject = new JObject(
+                    new JProperty("NationalParks",
+                        new JObject(
+                            new JProperty("NationalPark", parkArray)
                         )
-                    );
-                
-                return finalObject.toString(Formatting.None);
+                    )
+                );
+                return finalObject.ToString(Newtonsoft.Json.Formatting.None);
             }
             catch (Exception ex)
             {
                 return "Error: " + ex.Message;
             }
-
+        }
         // Helper method to download content from URL
         private static string DownloadContent(string url)
         {
