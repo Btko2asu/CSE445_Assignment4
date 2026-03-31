@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<NationalParks xmlns="http://Bknationalparks.org">
+<NationalParks>
 	<NationalPark Rating="4.9">
 		<Name>Grand Canyon</Name>
 		<Phone>928-638-7496</Phone>
@@ -13,7 +13,7 @@
 			<Zip>860323</Zip>
 		</Address>
 	</NationalPark>
-	
+
 	<NationalPark Rating="4.8">
 		<Name>Cuyahoga Valley National Park</Name>
 		<Phone>440-717-3890</Phone>
@@ -25,7 +25,7 @@
 			<Zip>44141</Zip>
 		</Address>
 	</NationalPark>
-	
+
 	<NationalPark Rating="4.7">
 		<Name>Indiana Dunes National Park</Name>
 		<Phone>219-395-1882</Phone>

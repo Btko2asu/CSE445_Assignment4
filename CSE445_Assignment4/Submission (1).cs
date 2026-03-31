@@ -51,7 +51,7 @@ namespace ConsoleApp1
                 bool isValid = true;
                 string msg = "No errors are found";
                XmlSchemaSet parks = new XmlSchemaSet();
-               parks.Add("http://Bknationalparks.org", xsdUrl);
+               parks.Add(null, xsdUrl);
 
                 XmlReaderSettings settings = new XmlReaderSettings();
                 settings.Schemas = parks;
