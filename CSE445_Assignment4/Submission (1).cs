@@ -1,8 +1,14 @@
 ﻿using System;
-using System.Xml.Schema;
-using System.Xml;
-using Newtonsoft.Json;
 using System.IO;
+using System.Runtime.ConstrainedExecution;
+using System.Runtime.InteropServices.JavaScript;
+using System.Text.Json;
+using System.Xml;
+using System.Xml.Linq;
+using System.Xml.Schema;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 
 
@@ -20,8 +26,8 @@ namespace ConsoleApp1
     public class Submission
     {
         public static string xmlURL = "https://raw.githubusercontent.com/Btko2asu/CSE445_Assignment4/refs/heads/master/CSE445_Assignment4/XMLFile1.xml?token=GHSAT0AAAAAADYYYXZFJOYC4OXAQ6DPEG742OG7I7A";
-        public static string xmlErrorURL = "Your Error XML URL";
-        public static string xsdURL = "Your XSD URL";
+        public static string xmlErrorURL = "https://raw.githubusercontent.com/Btko2asu/CSE445_Assignment4/refs/heads/master/CSE445_Assignment4/NationalParksErrors.xml?token=GHSAT0AAAAAADYYYXZEBNWEP36BWCRNOG2C2OG7LNQ";
+        public static string xsdURL = "https://raw.githubusercontent.com/Btko2asu/CSE445_Assignment4/refs/heads/master/CSE445_Assignment4/NationalParks.xsd?token=GHSAT0AAAAAADYYYXZEQJDF5ZRROIXPW6KG2OG7KYA";
 
         public static void Main(string[] args)
         {
@@ -40,13 +46,110 @@ namespace ConsoleApp1
         // Q2.1
         public static string Verification(string xmlUrl, string xsdUrl)
         {
-            //return "No Error" if XML is valid. Otherwise, return the desired exception message.
+            try
+            {
+                bool isValid = true;
+                string msg = "No errors are found";
+               XmlSchemaSet parks = new XmlSchemaSet();
+               parks.Add("http://Bknationalparks.org", xsdUrl);
+
+                XmlReaderSettings settings = new XmlReaderSettings();
+                settings.Schemas = parks;
+                settings.ValidationType = ValidationType.Schema;
+
+                settings.ValidationEventHandler += (sender, e) =>
+                {
+                    isValid = false;
+                    msg = e.Severity + ": " + e.Message;
+                };
+
+                using (XmlReader reader = XmlReader.Create(xmlUrl, settings))
+                {
+                    while (reader.Read()) { }
+                }
+                return isValid ? "No errors are found" : msg;
+
+            }
+            catch (Exception ex)
+            {
+                return "Error: " + ex.Message;
+            }
+
         }
 
         public static string Xml2Json(string xmlUrl)
         {
             // The returned jsonText needs to be de-serializable by Newtonsoft.Json package. (JsonConvert.DeserializeXmlNode(jsonText))
-        }
+            try
+            {
+                string xmlContent = DownloadContent(xmlUrl);
+                XDocument doc = XDocument.Parse(xmlContent);
+                XElement root = doc.Root;
+
+                // create a JSON array to store park information
+                JArray parkArray = new JArray();
+
+                // loop through all NationalPark data and create JSON objects for each element
+                foreach (XElement park in root.Elements("NationalPark"))
+                {
+                    JObject parkObject = new JObject();
+
+                    XElement nameElement = park.Element("Name");
+                    if (nameElement != null)
+                    {
+                        parkObject["Name"] = nameElement.Value;
+                    }
+
+                    // create JSON array to store multiple phone numbers elements
+                    JArray phoneArray = new JArray();
+                    foreach (XElement phone in park.Elements("Phone"))
+                    {
+                        phoneArray.Add(phone.Value);
+                    }
+                    parkObject["Phone"] = phoneArray;
+
+                    //create JSON object for address to store all address information
+                    XElement address = park.Element("Address");
+                    if (address != null)
+                    {
+                        JObject addressObject = new JObject();
+
+                        XElement number = address.Element("Number");
+                        XElement street = address.Element("Street");
+                        XElement city = address.Element("City");
+                        XElement state = address.Element("State");
+                        XElement zip = address.Element("Zip");
+
+                        if (number != null) addressObject["Number"] = number.Value;
+                        if (street != null) addressObject["Street"] = street.Value;
+                        if (city != null) addressObject["City"] = city.Value;
+                        if (state != null) addressObject["State"] = state.Value;
+                        if (zip != null) addressObject["Zip"] = zip.Value;
+
+                        //add attribute nearestAirport to address object
+                        XAttribute nearestAirport = address.Attribute("NearestAirport");
+                        if (nearestAirport != null) addressObject["NearestAirport"] = nearestAirport.Value;
+                        parkObject["Address"] = addressObject;
+
+                        //add attribute rating to park object
+                        XAttribute rating = park.Attribute("Rating");
+                        if (rating != null) parkObject["Rating"] = rating.Value;
+                        parkArray.Add(parkObject);
+                    }
+                    JObject finalObject = new JObject(
+                        new JProperty("NationalParks",
+                            newJObject(
+                                new JProperty("NationalPark", parkArray)
+                            )
+                        )
+                    );
+                
+                return finalObject.toString(Formatting.None);
+            }
+            catch (Exception ex)
+            {
+                return "Error: " + ex.Message;
+            }
 
         // Helper method to download content from URL
         private static string DownloadContent(string url)

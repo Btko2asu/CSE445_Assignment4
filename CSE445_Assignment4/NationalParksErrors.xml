@@ -1,12 +1,25 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<NationalPark xmlns="http://nationalparks.org">
-
-	
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Used NationalPark element instead of NationalParks -->
+<NationalPark xmlns="http://Bknationalparks.org">
+	<NationalPark Rating="4.9">
+		<Name>Grand Canyon</Name>
+		<Phone>928-638-7496</Phone>
+		<Phone>888-297-2757</Phone>
+		<Phone>866-499-2574</Phone>
+		<Address NearestAirport="FlagStaff">
+			<Number>8</Number>
+			<Street>S Entrance Road</Street>
+			<City>Grand Canyon</City>
+			<State>AZ</State>
+			<Zip>860323</Zip>
+		</Address>
+	</NationalPark>
+	<!-- Required attribute Rating is missing -->
 	<NationalPark>
 		<Name>Cuyahoga Valley National Park</Name>
 		<Phone>440-717-3890</Phone>
 		<Phone>440-546-5945</Phone>
-		<Address NearestAirport="Cleveland Hopkins International Airport">
+		<Address NearestAirport="Cleveland Hopkins ">
 			<Number>15610</Number>
 			<Street>Vaughn Road</Street>
 			<City>Brecksville</City>
@@ -14,11 +27,10 @@
 			<Zip>44141</Zip>
 		</Address>
 	</NationalPark>
-
-	
+	<!-- Missing Phone element -->
 	<NationalPark Rating="4.7">
 		<Name>Indiana Dunes National Park</Name>
-		<Address NearestAirport="Chicago Midway International Airport">
+		<Address NearestAirport="Chicago Midway">
 			<Number>1100</Number>
 			<Street>North Mineral Springs Road</Street>
 			<City>Porter</City>
@@ -27,7 +39,7 @@
 		</Address>
 	</NationalPark>
 
-	
+	<!-- Duplicate Name elements -->
 	<NationalPark Rating="4.8">
 		<Name>New River Gorge National Park and Preserve</Name>
 		<Name>Duplicate Park Name</Name>
@@ -41,8 +53,7 @@
 			<Zip>25846</Zip>
 		</Address>
 	</NationalPark>
-
-	
+	<!-- Did not close Address tag -->
 	<NationalPark Rating="4.8">
 		<Name>Shenandoah National Park</Name>
 		<Phone>540-999-3500</Phone>

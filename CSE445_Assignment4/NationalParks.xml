@@ -1,5 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <NationalParks xmlns="http://Bknationalparks.org">
+	<NationalPark Rating="4.9">
+		<Name>Grand Canyon</Name>
+		<Phone>928-638-7496</Phone>
+		<Phone>888-297-2757</Phone>
+		<Phone>866-499-2574</Phone>
+		<Address NearestAirport="FlagStaff">
+			<Number>8</Number>
+			<Street>S Entrance Road</Street>
+			<City>Grand Canyon</City>
+			<State>AZ</State>
+			<Zip>860323</Zip>
+		</Address>
+	</NationalPark>
+	
 	<NationalPark Rating="4.8">
 		<Name>Cuyahoga Valley National Park</Name>
 		<Phone>440-717-3890</Phone>
@@ -11,6 +25,7 @@
 			<Zip>44141</Zip>
 		</Address>
 	</NationalPark>
+	
 	<NationalPark Rating="4.7">
 		<Name>Indiana Dunes National Park</Name>
 		<Phone>219-395-1882</Phone>
