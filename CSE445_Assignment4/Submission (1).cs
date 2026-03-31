@@ -26,8 +26,8 @@ namespace ConsoleApp1
     public class Submission
     {
         public static string xmlURL = "https://raw.githubusercontent.com/Btko2asu/CSE445_Assignment4/refs/heads/master/CSE445_Assignment4/NationalParks.xml";
-        public static string xmlErrorURL = "https://raw.githubusercontent.com/Btko2asu/CSE445_Assignment4/refs/heads/master/CSE445_Assignment4/NationalParks.xsd";
-        public static string xsdURL = "https://raw.githubusercontent.com/Btko2asu/CSE445_Assignment4/refs/heads/master/CSE445_Assignment4/NationalParksErrors.xml";
+        public static string xmlErrorURL = "https://raw.githubusercontent.com/Btko2asu/CSE445_Assignment4/refs/heads/master/CSE445_Assignment4/NationalParksErrors.xml";
+        public static string xsdURL = "https://raw.githubusercontent.com/Btko2asu/CSE445_Assignment4/refs/heads/master/CSE445_Assignment4/NationalParks.xsd";
 
         public static void Main(string[] args)
         {
@@ -60,7 +60,7 @@ namespace ConsoleApp1
                 settings.ValidationEventHandler += (sender, e) =>
                 {
                     isValid = false;
-                    msg = e.Severity + ": " + e.Message;
+                    msg += e.Severity + ": " + e.Message;
                 };
 
                 using (XmlReader reader = XmlReader.Create(xmlUrl, settings))
@@ -128,12 +128,12 @@ namespace ConsoleApp1
 
                         //add attribute nearestAirport to address object
                         XAttribute nearestAirport = address.Attribute("NearestAirport");
-                        if (nearestAirport != null) addressObject["NearestAirport"] = nearestAirport.Value;
+                        if (nearestAirport != null) addressObject["@NearestAirport"] = nearestAirport.Value;
                         parkObject["Address"] = addressObject;
                     }
                     //add attribute rating to park object
                     XAttribute rating = park.Attribute("Rating");
-                    if (rating != null) parkObject["Rating"] = rating.Value;
+                    if (rating != null) parkObject["@Rating"] = rating.Value;
                     parkArray.Add(parkObject);
                 }
                 JObject finalObject = new JObject(
