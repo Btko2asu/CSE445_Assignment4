@@ -58,8 +58,7 @@
 	<NationalPark Rating="4.8">
 		<Name>Shenandoah National Park</Name>
 		<Phone>540-999-3500</Phone>
-		<Phone>800-732-0911</Phone>
-		<Address NearestAirport="Charlottesville-Albemarle Airport">
+		<Address NearestAirport="Charlottesville Airport">
 			<Number>3655</Number>
 			<Street>U.S. Highway 211 East</Street>
 			<City>Luray</City>
