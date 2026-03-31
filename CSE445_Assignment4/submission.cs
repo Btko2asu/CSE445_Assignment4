@@ -7,9 +7,9 @@ namespace ConsoleApp1
 {
     public class Submission
     {
-        public static string xmlURL = "https://raw.githubusercontent.com/Btko2asu/CSE445_Assignment4/refs/heads/master/CSE445_Assignment4/NationalParks.xml";
-        public static string xmlErrorURL = "https://raw.githubusercontent.com/Btko2asu/CSE445_Assignment4/refs/heads/master/CSE445_Assignment4/NationalParksErrors.xml";
-        public static string xsdURL = "https://raw.githubusercontent.com/Btko2asu/CSE445_Assignment4/refs/heads/master/CSE445_Assignment4/NationalParks.xsd";
+        public static string xmlURL = "https://raw.githubusercontent.com/Btko2asu/CSE445_Assignment4/CSE445_Assignment4/NationalParks.xml";
+        public static string xmlErrorURL = "https://raw.githubusercontent.com/Btko2asu/CSE445_Assignment4/CSE445_Assignment4/NationalParksErrors.xml";
+        public static string xsdURL = "https://raw.githubusercontent.com/Btko2asu/CSE445_Assignment4/CSE445_Assignment4/NationalParks.xsd";
 
         public static void Main(string[] args)
         {
