@@ -1,28 +1,10 @@
-﻿using System;
-using System.IO;
-using System.Runtime.ConstrainedExecution;
-using System.Runtime.InteropServices.JavaScript;
-using System.Text.Json;
-using System.Xml;
+﻿using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Schema;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-
-
-
-/**
- * This template file is created for ASU CSE445 Distributed SW Dev Assignment 4.
- * Please do not modify or delete any existing class/variable/method names. However, you can add more variables and functions.
- * Uploading this file directly will not pass the autograder's compilation check, resulting in a grade of 0.
- * **/
-
 
 namespace ConsoleApp1
 {
-
-
     public class Submission
     {
         public static string xmlURL = "https://raw.githubusercontent.com/Btko2asu/CSE445_Assignment4/refs/heads/master/CSE445_Assignment4/NationalParks.xml";
